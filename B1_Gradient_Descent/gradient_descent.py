@@ -1,4 +1,3 @@
-import math
 import numpy as np 
 import matplotlib.pyplot as plt
 
@@ -23,7 +22,20 @@ x2 = myGD(0.1, 5)
 print('x1 =', x1[-1])
 print('x2 =', x2[-1])
 
-x = np.linspace(-6, 6)
-plt.plot(x, [F(it) for it in x])
+x = np.arange(-6, 6, 0.1)
+fig, ax = plt.subplots()
+ax.plot(x, F(x))
 
+#draw points
+for item in x1:
+    plt.scatter(item,F(item),c="g") 
+
+for item in x2:
+    plt.scatter(item,F(item),c="g") 
+plt.scatter(x1[-1],F(x1[-1]),c='red')
+
+
+ax.set_title('$x^2 + 5sin(x)$')
+plt.ylabel('F(x)')
+plt.xlabel('x')
 plt.show()
